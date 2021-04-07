@@ -45,6 +45,17 @@ class Environment(abc.ABC):
         """
 
     @abc.abstractmethod
+    def reset(self, random):
+        """Resets environment to initial observation.
+
+        Args:
+            random: random initial observation.
+
+        Returns:
+            observation: current observation of environment.
+        """
+
+    @abc.abstractmethod
     def step(self, action):
         """Executes step in environment.
 
@@ -55,17 +66,6 @@ class Environment(abc.ABC):
             observation: current observation of environment.
             reward: reward of action and observation.
             done: whether episode has ended.
-        """
-
-    @abc.abstractmethod
-    def reset(self, random):
-        """Resets environment to initial observation.
-
-        Args:
-            random: random initial observation.
-
-        Returns:
-            observation: current observation of environment.
         """
 
     @abc.abstractmethod
