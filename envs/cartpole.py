@@ -1,8 +1,9 @@
 
 import numpy as np
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 
-from envs import Environment
+from . import Environment
 
 
 class Cartpole(Environment):

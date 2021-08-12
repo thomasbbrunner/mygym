@@ -6,9 +6,16 @@ import numpy as np
 class Environment(abc.ABC):
     """Base class for environments.
 
+    Environments are defined by:
+        state: internal state of environment
+        observation: states that can be observed
+        action: action taken at each step
+        simulation: simulates transition between states
+        reward: reward given for state & action
+
     Environments must have the following properties:
-        action_space
-        observation_space
+        action_range
+        observation_range
         reward_range
 
     Environments must have to implement the methods:
@@ -17,7 +24,6 @@ class Environment(abc.ABC):
         render
         seed
         close
-
     """
 
     # random number generator
