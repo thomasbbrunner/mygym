@@ -6,7 +6,8 @@ from envs import Environment
 
 
 class Pendulum(Environment):
-    """Pendulum simulation environment.
+    """
+    Pendulum simulation environment.
 
     Coordinate system:
         angle: positive direction is anti-clockwise,
@@ -114,7 +115,7 @@ class Pendulum(Environment):
                 self.background = pygame.display.set_mode(
                     (self.WINDOW_WIDTH, self.WINDOW_HEIGHT))
 
-            # avoid 'not-responding' error
+            # avoid unresponsive window
             pygame.event.get()
 
             # Pygame has coordinates starting on top left corner of the screen
@@ -143,20 +144,20 @@ class Pendulum(Environment):
         pygame.quit()
 
     def check_torque_range(self, torque):
-        '''Method checks if torque is an allowed torque range
-        '''
+        """Method checks if torque is an allowed torque range
+        """
         return np.clip(torque, *self.TORQUE_RANGE)
 
     def check_velocity_range(self, velocity):
-        '''Clips velocity to allowed range.
+        """Clips velocity to allowed range.
         Attention: upper bound not included.
-        '''
+        """
         return np.clip(velocity, *self.VEL_RANGE)
 
     def check_angle_range(self, angle):
-        '''Method rescales the angle between [-PI, PI)
+        """Method rescales the angle between [-PI, PI)
         Attention: upper bound not included.
-        '''
+        """
         return (angle + np.pi) % (2*np.pi) - np.pi
 
     def _get_reward(self, angle):

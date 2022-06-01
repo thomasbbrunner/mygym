@@ -7,7 +7,8 @@ from robotsim.robot import Robot
 
 
 class Paper(Robot):
-    """Simulation of robot with one prismatic and three revolute joints
+    """
+    Simulation of robot with one prismatic and three revolute joints
     (as proposed in the INN paper).
     For documentation, please refer to the base class.
     """

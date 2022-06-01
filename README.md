@@ -15,11 +15,10 @@ Can be used for balance (pole starts facing up, has to be balanced) and swing-up
 Environment for testing of learning and function approximation algorithms.
 
 ## TODOs:
-- [ ] add robot arm simulations
+- [x] add robot arm simulations
 - [ ] add function approximation methods
 - [ ] remove check_* methods
 - [ ] add agents
-- [ ] substitute pygame for another visualization tool capable of 3D graphics
 - [x] add cartpole simulation
 - [x] add pendulum simulation
 - [x] add toy simulation

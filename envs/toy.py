@@ -5,8 +5,8 @@ from envs import Environment
 
 
 class Toy(Environment):
-    """Environment for testing of learning and
-    function approximation algorithms.
+    """
+    Environment for testing of algorithms.
 
     Observations:
         position

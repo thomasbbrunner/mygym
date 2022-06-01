@@ -3,7 +3,8 @@ import numpy as np
 
 
 def dh_transformation(alpha, a, d, theta, squeeze=True):
-    """Returns transformation matrix between two frames
+    """
+    Returns transformation matrix between two frames
     according to the Denavit-Hartenberg convention presented
     in 'Introduction to Robotics' by Craig.
 
@@ -55,5 +56,4 @@ def dh_transformation(alpha, a, d, theta, squeeze=True):
 
 def wrap(angles):
     """Wraps angles to [-pi, pi) range."""
-    # wrap angles to range [-pi, pi)
     return (angles + np.pi) % (2*np.pi) - np.pi

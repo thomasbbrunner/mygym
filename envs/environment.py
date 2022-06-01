@@ -4,7 +4,8 @@ import numpy as np
 
 
 class Environment(abc.ABC):
-    """Base class for environments.
+    """
+    Base class for environments.
 
     Environments are defined by:
         state: internal state of environment

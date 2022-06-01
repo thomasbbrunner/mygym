@@ -7,7 +7,8 @@ import utils
 
 
 class Planar(Robot):
-    """Simulation of planar robot with any number of revolute joints.
+    """
+    Simulation of planar robot with any number of revolute joints.
     For documentation, please refer to the base class.
     """
 

@@ -4,7 +4,8 @@ import matplotlib.pyplot as plt
 
 
 def plot(joint_states, robot, title=None, path=None, show=False):
-    """Plots robot for specified joint states.
+    """
+    Plots robot for specified joint states.
     Also accepts batches of joint states.
 
     Args:
@@ -61,7 +62,8 @@ def plot(joint_states, robot, title=None, path=None, show=False):
 
 
 def heatmap(joint_states, robot, ax=None, highlight=None, transparency=None, title=None, path=None, show=False):
-    """Plots heatmat of robot for specified joint states.
+    """
+    Plots heatmap of robot configurations for specified joint states.
 
     Args:
     joint_states: joint states to plot

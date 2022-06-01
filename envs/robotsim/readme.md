@@ -1,6 +1,6 @@
 # robotsim
 
-Simple and fast robot arm simulator
+Simple and fast planar robot arm simulation.
 
 # Planar
 

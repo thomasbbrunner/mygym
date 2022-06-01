@@ -4,7 +4,8 @@ import numpy as np
 
 
 class Robot(ABC):
-    """Abstract class for robot simulations.
+    """
+    Abstract class for robot simulations.
     """
 
     # for generation of random values
@@ -13,7 +14,8 @@ class Robot(ABC):
 
     @abstractmethod
     def forward(self, joint_states, squeeze=True):
-        """Returns TCP coordinates for specified joint states.
+        """
+        Returns TCP coordinates for specified joint states.
         Also accepts batch processing of several joint states.
 
         Args:
@@ -37,7 +39,8 @@ class Robot(ABC):
 
     @abstractmethod
     def inverse(self, tcp_coordinates, squeeze=True):
-        """Returns joint states for specified TCP coordinates.
+        """
+        Returns joint states for specified TCP coordinates.
         Also accepts batch processing of several TCP coordinates.
         Returns at most two possible solutions for each input.
         If no solution is found, np.nan is returned.
@@ -60,9 +63,9 @@ class Robot(ABC):
         """
         pass
 
-    def rejection_sampling(
-            self, tcp_coordinates, num_samples, eps, mean, std):
-        """Samples possible robot configurations 
+    def rejection_sampling(self, tcp_coordinates, num_samples, eps, mean, std):
+        """
+        Samples possible robot configurations 
         that reach the specified TCP.
 
         Args:
@@ -119,7 +122,8 @@ class Robot(ABC):
 
     @abstractmethod
     def get_joint_coords(self, joint_states):
-        """Calculates coordinates for each joint center 
+        """
+        Calculates coordinates for each joint center 
         and for the TCP.
         Also accepts batch processing of several joint states.
 
@@ -133,18 +137,15 @@ class Robot(ABC):
 
     @abstractmethod
     def get_joint_ranges(self):
-        """Returns ranges of each joint.
-        """
+        """Returns ranges of each joint."""
         pass
 
     @abstractmethod
     def get_length(self):
-        """Returns length of robot (sum of length of all links).
-        """
+        """Returns length of robot (sum of length of all links)."""
         pass
 
     @abstractmethod
     def get_dof(self):
-        """Returns number of DOF of robot.
-        """
+        """Returns number of DOF of robot."""
         pass
