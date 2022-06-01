@@ -1,12 +1,15 @@
 
+import gym
 import numpy as np
 
 from envs import Environment
 import robotsim
 
 
-class RobotReaching(Environment):
-    """Environment for robot's end-effector to reach a specific point in the 
+class RobotReaching(gym.GoalEnv):
+    # TODO make gym Env/GoalEnv the base classes for these!
+    """
+    Environment for robot's end-effector to reach a specific point in the 
     workspace.
 
     State:
@@ -48,7 +51,17 @@ class RobotReaching(Environment):
 
         # state is composed of (joint states, end-effector position)
         self._state = (np.zeros(self._num_dof), self._simulation.forward(np.zeros(self._num_dof)))
-    
+
+    def step(self, action):
+
+        self._state[0] = self._state[0] + self.DT*action
+        self._state[1] = self._simulation.forward(self._state[0])
+
+        reward = np.linalg.norm(self._goal - self._state[1], 2) <= self._precision
+        done = reward or self._num_steps >= self._max_num_steps
+
+        return (np.concatenate((self._state[0], self._state[1])), int(reward), done)
+
     def reset(self, random):
 
         if random:
@@ -61,19 +74,15 @@ class RobotReaching(Environment):
             self._state = (np.zeros(self._num_dof), self._simulation.forward(np.zeros(self._num_dof)))
         
         return (np.concatenate((self._state[0], self._state[1])))
-    
-    def step(self, action):
-
-        self._state[0] = self._state[0] + self.DT*action
-        self._state[1] = self._simulation.forward(self._state[0])
-
-        reward = np.linalg.norm(self._goal - self._state[1], 2) <= self._precision
-        done = reward or self._num_steps >= self._max_num_steps
-
-        return (np.concatenate((self._state[0], self._state[1])), int(reward), done)
 
     def render(self):
         pass
 
     def close(self):
+        pass
+
+    def seed(self):
+        pass
+
+    def compute_reward(self, achieved_goal, desired_goal, info):
         pass
